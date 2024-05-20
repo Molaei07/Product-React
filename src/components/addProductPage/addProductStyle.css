@@ -1,0 +1,32 @@
+.container{
+    width: 500px;
+    height: 400px;
+    margin: 80px auto;
+    border-radius: 8px;
+    border: 10px double #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+.container .title{
+    width: 90%;
+    color: #fff;
+}
+.container .title.titr{
+    margin-bottom: 0;
+    text-align: center;
+}
+.container .field{
+    width: 90%;
+    height: 30px;
+    border: 0 none;
+    outline: none;
+    border-radius: 4px;
+}
+.container .chooseImage{
+    width: 90%;
+    height: 180px;
+    border: 2px dashed #ccc;
+    margin-top: 20px;
+}

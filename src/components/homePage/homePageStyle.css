@@ -42,14 +42,15 @@
 
 
 .content{
-    width: 80%;
+    max-width: 78%;
+    width: auto;
     height: auto;
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
     gap: 30px;
     margin: 80px auto 0;
-    border: 2px solid #fff;
+    border: 10px double #fff;
     border-radius: 8px;
     padding: 20px;
 }
