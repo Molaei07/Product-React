@@ -10,11 +10,7 @@ function App() {
 
   /* Product List */
   const [list, setList] = useState([
-    { id: 1, name: "خمیر دندان", price: "200000" },
-    { id: 2, name: "خمیر", price: "40000" },
-    { id: 3, name: "جفر", price: "3000000" },
-    { id: 4, name: "دندان", price: "500000" },
-    { id: 5, name: "ممد", price: "2500000" },
+    { id: 1, name: "Merident", price: 200000, image:"", score: 2 },
   ]);
 
   return (
@@ -22,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home list={list} setList={setList} />} />
         <Route path="/home" element={<Navigate replace to="/" />} />
-        <Route path="/addproduct" element={<AddProduct />} />
+        <Route path="/addproduct" element={<AddProduct list={list} setList={setList} />} />
         <Route path="/editproduct" element={<EditProduct />} />
         <Route path="/details" element={<DetailsItem />} />
       </Routes>

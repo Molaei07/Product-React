@@ -1,24 +1,57 @@
+/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
 import "./addProductStyle.css";
-import { Header } from "../homePage/header";
+import { Form, Field, Formik } from "formik";
+import { AdminMenu } from "../adminMenu/adminMenu";
+import { useState } from "react";
+// import { number } from "yup";
 
-export const AddProduct = () => {
-    return ( 
-        <>
-            <Header />
-            <div className="container">
-                <h2 className="title titr">ثبت محصول جدید</h2>
-                <span className="title">نام محصول:</span>
-                <input type="text" className="field" />
-                <span className="title">قیمت:</span>
-                <input type="text" className="field" />
-                <div className="chooseImage">
-                    
+export const AddProduct = ({list, setList}) => {
+    /* Set Picture */
+    const [productImage, setProductImage] = useState();
+    const setImage = (event) => {
+        setProductImage(URL.createObjectURL(event.target.files[0]))
+    }
+    /* Set a new product to List */
+    const createNewProduct = (values) => {
+        setList([...list, values]);
+    }
+
+    return (
+        <div className="container">
+            <AdminMenu />
+            <div className="content">
+                <div className="header">
+                    <h1 className="title">New Product</h1>
                 </div>
+                <Formik initialValues={{ id: (list.length + 1), name: "", price: "", image: "", score: "" }} onSubmit={(values) => { createNewProduct(values) }}>
+                    <Form className="content">
+                        <div className="partLeft">
+                            <span className="partName">Picture:</span>
+                            <Field type="file" id="chooseImage" name="image" accept="image/*" onChange={(event) => { setImage(event) }} />
+                            <label htmlFor="chooseImage" className="choose">
+                                <img
+                                    style={{ maxWidth: "100%", maxHeight: "100%" }}
+                                    src={productImage ? productImage : "Its a problem!"}
+                                    alt=""
+                                />
+                            </label>
+                        </div>
+                        <div className="partRight">
+                            <span className="partName">Name:</span>
+                            <Field type="text" name="name" />
+                            <span className="partName">Price:</span>
+                            <Field type="number" name="price" />
+                            <span className="partName">Score:</span>
+                            <Field type="number" name="score" />
+                            <div className="buttons">
+                                <button type="submit" className="btn add-btn">Add</button>
+                                <Link className="btn cancel-btn" to="/">Cancel</Link>
+                            </div>
+                        </div>
+                    </Form>
+                </Formik>
             </div>
-            <Link to="/">Add</Link>
-            ----
-            <Link to="/">Cancel</Link>
-        </>
-     );
+        </div>
+    );
 }

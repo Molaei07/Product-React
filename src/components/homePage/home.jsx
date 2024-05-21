@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import "./homePageStyle.css";
-import { Header } from "./header";
-import { WrapperItem } from "./wrapperItem";
+import { WrapperItem } from "../productItem/wrapperItem";
+import { AdminMenu } from "../adminMenu/adminMenu";
 
 export const Home = ({ list, setList }) => {
     return (
-        <>
-            <Header />
-            <WrapperItem list={list} setList={setList} />
-        </>
+        <div className="container">
+            <AdminMenu />
+            <WrapperItem list={list} setList={setList} /> 
+        </div>
     );
 }

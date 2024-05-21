@@ -16,11 +16,11 @@ export const Item = ({ id, name, price, list, setList }) => {
             </div>
             <div className="info">
                 <span className="productName">{name}</span>
-                <span className="price">{price + " ريال "}</span>
+                <span className="price">{price + " $ "}</span>
                 <div className="btnContainer">
-                    <Link className="btn more-btn" to="/details">جزئیات</Link>
-                    <Link className="btn edit-btn" to="/editproduct">ویرایش</Link>
-                    <button onClick={() => { handleDelete(id) }} className="btn delete-btn">حذف</button>
+                    <Link className="btn more-btn" to="/details">Details</Link>
+                    <Link className="btn edit-btn" to="/editproduct">Edit</Link>
+                    <button onClick={() => { handleDelete(id) }} className="btn delete-btn">Delete</button>
                 </div>
             </div>
         </div>

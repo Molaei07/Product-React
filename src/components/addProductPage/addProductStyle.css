@@ -1,32 +1,69 @@
-.container{
-    width: 500px;
-    height: 400px;
-    margin: 80px auto;
-    border-radius: 8px;
-    border: 10px double #fff;
-    padding: 20px;
+form input[type=file]{
+    display: none !important;
+}
+form .partLeft{
+    width: 30%;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-flow: row wrap;
 }
-.container .title{
-    width: 90%;
-    color: #fff;
+form .partLeft .choose{
+    width: 100%;
+    height: 300px;
+    border: 2px dashed #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
-.container .title.titr{
-    margin-bottom: 0;
-    text-align: center;
+form .partLeft .partName,
+form .partRight .partName{
+    width: 100%;
+    height: fit-content;
 }
-.container .field{
-    width: 90%;
-    height: 30px;
+form .partRight{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    flex-flow: row wrap;
+}
+form .partRight input[type=text],
+form .partRight input[type=number]{
+    width: 100%;
+    margin: 0;
+    padding: 0;
     border: 0 none;
     outline: none;
-    border-radius: 4px;
+    height: 40px;
+    text-indent: 10px;
 }
-.container .chooseImage{
-    width: 90%;
-    height: 180px;
-    border: 2px dashed #ccc;
-    margin-top: 20px;
+form .partRight .buttons{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    column-gap: 20px;
+}
+form .partRight .buttons .btn{
+    font-size: 20px;
+    width: 30%;
+    cursor: pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 0 none;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 40px;
+}
+form .partRight .buttons .add-btn{
+    background-color: rgb(99, 239, 99);
+}
+form .partRight .buttons .cancel-btn{
+    background-color: rgb(224, 65, 65);
+    text-decoration: none;
+    color: #000;
+}
+form .partRight .buttons .btn:hover{
+    transform: scale(1.1);
 }
