@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Home list={list} setList={setList} />} />
         <Route path="/home" element={<Navigate replace to="/" />} />
         <Route path="/addproduct" element={<AddProduct list={list} setList={setList} />} />
-        <Route path="/editproduct" element={<EditProduct />} />
+        <Route path="/editproduct" element={<EditProduct list={list} setList={setList} />} />
         <Route path="/details" element={<DetailsItem />} />
       </Routes>
     </BrowserRouter>

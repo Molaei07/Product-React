@@ -11,11 +11,15 @@ export const Item = ({ id, name, price, list, setList }) => {
         console.log(productId)
         setList(list.filter(el => el.id !== productId))
     }
-
+    /* Details Item */
     const handleDetails = (productId) => {
         const detailsObj = list.find(el => el.id === productId)
-        console.log(detailsObj)
         navigateDetails("/details", {state: detailsObj})
+    }
+    /* Edit Item */
+    const handleEdit = (productId) => {
+        const editObj = list.find(el => el.id === productId)
+        navigateEdit("/editproduct", {state: editObj})
     }
 
     return (
@@ -31,7 +35,7 @@ export const Item = ({ id, name, price, list, setList }) => {
                         handleDetails(id)
                     }}>Details</button>
                     <button className="btn edit-btn" onClick={() => {
-                        navigateEdit("/editproduct")
+                        handleEdit(id)
                     }}>Edit</button>
                     <button onClick={() => { handleDelete(id) }} className="btn delete-btn">Delete</button>
                 </div>
