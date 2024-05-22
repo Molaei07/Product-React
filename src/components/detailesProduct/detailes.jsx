@@ -1,8 +1,14 @@
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { AdminMenu } from "../adminMenu/adminMenu"
 
 export const DetailsItem = () => {
-    return (<>
-        <h1 style={{ color: "#fff" }}>2</h1>
-        <Link to="/">Back</Link>
-    </>);
+    const locationId = useLocation();
+    return (
+        <div className="container">
+            <AdminMenu />
+            <div className="content">
+                
+            </div>
+        </div>
+    );
 }

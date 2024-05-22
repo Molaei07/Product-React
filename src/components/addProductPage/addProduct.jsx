@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./addProductStyle.css";
 import { Form, Field, Formik } from "formik";
 import { AdminMenu } from "../adminMenu/adminMenu";
@@ -7,6 +7,8 @@ import { useState } from "react";
 // import { number } from "yup";
 
 export const AddProduct = ({list, setList}) => {
+    const navigate = useNavigate();
+
     /* Set Picture */
     const [productImage, setProductImage] = useState();
     const setImage = (event) => {
@@ -46,7 +48,9 @@ export const AddProduct = ({list, setList}) => {
                             <Field type="number" name="score" />
                             <div className="buttons">
                                 <button type="submit" className="btn add-btn">Add</button>
-                                <Link className="btn cancel-btn" to="/">Cancel</Link>
+                                <button className="btn cancel-btn" onClick={() => {
+                                    navigate("/")
+                                }}>Cancel</button>
                             </div>
                         </div>
                     </Form>
