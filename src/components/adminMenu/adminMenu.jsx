@@ -7,7 +7,7 @@ export const AdminMenu = () => {
             <div className="menu">
                 <div className="subject">
                     <div className="icon">
-                        <img src="./02-2.jpg" alt="" />
+                        <img src="./logo192.png" alt="Admin" />
                     </div>
                     <div className="adminInfo">
                         {/* eslint-disable-next-line jsx-a11y/heading-has-content */}

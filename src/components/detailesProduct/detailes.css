@@ -1,0 +1,16 @@
+.content .partRight .info{
+    width: 100%;
+    font-size: 20px;
+}
+.content .partRight .btn{
+    width: 20%;
+    height: 40px;
+    border-radius: 25px;
+    background-color: rgb(242, 85, 85);
+    cursor: pointer;
+    border: 0 none;
+    font-weight: bold;
+}
+.content .partRight .btn:hover{
+    transform: scale(1.1);
+}

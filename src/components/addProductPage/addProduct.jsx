@@ -1,12 +1,19 @@
 /* eslint-disable no-unused-vars */
 import { Link, useNavigate } from "react-router-dom";
 import "./addProductStyle.css";
-import { Form, Field, Formik } from "formik";
+import { Form, Field, Formik, ErrorMessage } from "formik";
 import { AdminMenu } from "../adminMenu/adminMenu";
 import { useState } from "react";
-// import { number } from "yup";
+import * as yup from "yup";
 
-export const AddProduct = ({list, setList}) => {
+export const AddProduct = ({ list, setList }) => {
+    const validation = yup.object().shape({
+        name: yup.string().required(),
+        price: yup.number().required(),
+        score: yup.number().max(5).min(1).required(),
+    })
+
+    /* Navigate to Home */
     const navigate = useNavigate();
 
     /* Set Picture */
@@ -26,7 +33,11 @@ export const AddProduct = ({list, setList}) => {
                 <div className="header">
                     <h1 className="title">New Product</h1>
                 </div>
-                <Formik initialValues={{ id: (list.length + 1), name: "", price: "", image: "", score: "" }} onSubmit={(values) => { createNewProduct(values) }}>
+                <Formik
+                    initialValues={{ id: (list.length + 1), name: "", price: "", image: "", score: "" }}
+                    onSubmit={(values) => { createNewProduct(values) }}
+                    validationSchema={validation}
+                >
                     <Form className="content">
                         <div className="partLeft">
                             <span className="partName">Picture:</span>
@@ -40,11 +51,11 @@ export const AddProduct = ({list, setList}) => {
                             </label>
                         </div>
                         <div className="partRight">
-                            <span className="partName">Name:</span>
+                            <span className="partName">Name:{<ErrorMessage component={"span"} name="name" className="error" />}</span>
                             <Field type="text" name="name" />
-                            <span className="partName">Price:</span>
+                            <span className="partName">Price:{<ErrorMessage component={"span"} name="price" className="error" />}</span>
                             <Field type="number" name="price" />
-                            <span className="partName">Score:</span>
+                            <span className="partName">Score:{<ErrorMessage component={"span"} name="score" className="error" />}</span>
                             <Field type="number" name="score" />
                             <div className="buttons">
                                 <button type="submit" className="btn add-btn">Add</button>

@@ -1,14 +1,14 @@
 form input[type=file]{
     display: none !important;
 }
-form .partLeft{
+.content .partLeft{
     width: 30%;
     height: 100%;
     display: flex;
     justify-content: start;
     flex-flow: row wrap;
 }
-form .partLeft .choose{
+.content .partLeft .choose{
     width: 100%;
     height: 300px;
     border: 2px dashed #fff;
@@ -17,20 +17,20 @@ form .partLeft .choose{
     align-items: center;
     cursor: pointer;
 }
-form .partLeft .partName,
-form .partRight .partName{
+.content .partLeft .partName,
+.content .partRight .partName{
     width: 100%;
     height: fit-content;
 }
-form .partRight{
+.content .partRight{
     width: 60%;
     height: 100%;
     display: flex;
     justify-content: start;
     flex-flow: row wrap;
 }
-form .partRight input[type=text],
-form .partRight input[type=number]{
+.content .partRight input[type=text],
+.content .partRight input[type=number]{
     width: 100%;
     margin: 0;
     padding: 0;
@@ -39,14 +39,14 @@ form .partRight input[type=number]{
     height: 40px;
     text-indent: 10px;
 }
-form .partRight .buttons{
+.content .partRight .buttons{
     width: 100%;
     height: 40px;
     display: flex;
     justify-content: start;
     column-gap: 20px;
 }
-form .partRight .buttons .btn{
+.content .partRight .buttons .btn{
     font-size: 20px;
     width: 30%;
     cursor: pointer;
@@ -56,14 +56,18 @@ form .partRight .buttons .btn{
     text-align: center;
     line-height: 40px;
 }
-form .partRight .buttons .add-btn{
+.content .partRight .buttons .add-btn{
     background-color: rgb(99, 239, 99);
 }
-form .partRight .buttons .cancel-btn{
+.content .partRight .buttons .cancel-btn{
     background-color: rgb(224, 65, 65);
     text-decoration: none;
     color: #000;
 }
-form .partRight .buttons .btn:hover{
+.content .partRight .buttons .btn:hover{
     transform: scale(1.1);
+}
+.error{
+    color: red;
+    font-weight: bold;
 }
