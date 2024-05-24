@@ -2,17 +2,26 @@ import { Formik } from "formik";
 import { FormList } from "../form/form";
 import "./edit.css";
 import { AdminMenu } from "../adminMenu/adminMenu";
-import * as yup from "yup";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
 
-export const EditProduct = ({ list, setList }) => {
-    const validation = yup.object().shape({
-        name: yup.string().required(),
-        price: yup.number().required(),
-        score: yup.number().max(5).min(1).required(),
-    })
+export const EditProduct = ({ list, setList, validation }) => {
+    
 
+    /* Edit product */
+    const handleEdit = (values) => {
+        axios.put(`https://664e181dfafad45dfadf0061.mockapi.io/ProductList/${values.id}`, values)
+            .then(() => {
+                alert("is Edited")
+            })
+        /* Replace obj in list with new obj */
+        let newList = list.find(el => el.id === values.id)
+        Object.assign(newList, values) /* impotent! */
+    }
+
+    /* Get obj from List */
     const edId = useLocation();
+
     return (
         <div className="container">
             <AdminMenu />
@@ -22,7 +31,7 @@ export const EditProduct = ({ list, setList }) => {
                 </div>
                 <Formik
                     initialValues={{ id: edId.state.id, name: edId.state.name, price: edId.state.price, image: "", score: edId.state.score }}
-                    onSubmit={(values) => { alert("is Edited") }}
+                    onSubmit={(values) => { handleEdit(values) }}
                     validationSchema={validation}
                 >
                     <FormList />

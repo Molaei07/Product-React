@@ -9,9 +9,9 @@ export const WrapperItem = ({ list, setList }) => {
                 <h1 className="title">All Products</h1>
                 <input className="searchBox" type="text" name="search" id="search" placeholder="Search..." />
             </div>
-            {list.map((item) => (
+            {list.map((item,index) => (
                 <Item
-                    key={item.id}
+                    key={index}
                     id={item.id}
                     name={item.name}
                     price={item.price}
