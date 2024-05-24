@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { Link, useNavigate } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const Item = ({ id, name, price, list, setList }) => {
 
@@ -8,7 +9,10 @@ export const Item = ({ id, name, price, list, setList }) => {
 
     /* Delete Item */
     const handleDelete = (productId) => {
-        console.log(productId)
+        axios.delete(`https://664e181dfafad45dfadf0061.mockapi.io/ProductList/${productId}`)
+        .then(() => {
+            alert("Product deleted")
+        })
         setList(list.filter(el => el.id !== productId))
     }
     /* Details Item */
@@ -37,7 +41,7 @@ export const Item = ({ id, name, price, list, setList }) => {
                     <button className="btn edit-btn" onClick={() => {
                         handleEdit(id)
                     }}>Edit</button>
-                    <button onClick={() => { handleDelete(id) }} className="btn delete-btn">Delete</button>
+                    <button onClick={() => {handleDelete(id)}} className="btn delete-btn">Delete</button>
                 </div>
             </div>
         </div>

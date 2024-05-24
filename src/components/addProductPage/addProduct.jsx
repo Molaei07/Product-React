@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import { AdminMenu } from "../adminMenu/adminMenu";
 import * as yup from "yup";
 import { FormList } from "../form/form";
+import axios from "axios";
 
 export const AddProduct = ({ list, setList }) => {
     const validation = yup.object().shape({
@@ -13,11 +14,13 @@ export const AddProduct = ({ list, setList }) => {
     })
 
     /* Set a new product to List */
-    const createNewProduct = (values) => {
-        const findSimilarProduct = list.find(el => el.id === values.id);
-        if (!findSimilarProduct) {
-            setList([...list, values]);
-        }
+    const createNewProduct = async (values) => {
+        // const findSimilarProduct = list.find(el => el.id === values.id);
+        // if (!findSimilarProduct) {
+        //     setList([...list, values]);
+        // }
+        await axios.post("https://664e181dfafad45dfadf0061.mockapi.io/ProductList", values)
+        setList([...list, values]);
     }
 
     return (
@@ -32,7 +35,7 @@ export const AddProduct = ({ list, setList }) => {
                     onSubmit={(values) => { createNewProduct(values) }}
                     validationSchema={validation}
                 >
-                    <FormList />                    
+                    <FormList />
                 </Formik>
             </div>
         </div>
