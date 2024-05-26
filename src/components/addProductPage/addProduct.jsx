@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import "./addProductStyle.css";
 import { Formik } from "formik";
-import { AdminMenu } from "../adminMenu/adminMenu";
-import { FormList } from "../form/form";
+import AdminMenu from "../adminMenu/adminMenu";
+import FormList from "../form/form";
 import axios from "axios";
 
-export const AddProduct = ({ list, setList, getList, validation }) => {
+const AddProduct = ({ list, setList, getList, validation }) => {
     /* Set a new product to List */
     const createNewProduct = async (values) => {
         await axios.post("https://664e181dfafad45dfadf0061.mockapi.io/ProductList", values)
@@ -31,3 +31,5 @@ export const AddProduct = ({ list, setList, getList, validation }) => {
         </div>
     );
 }
+
+export default AddProduct;

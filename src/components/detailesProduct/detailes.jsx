@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { AdminMenu } from "../adminMenu/adminMenu"
+import AdminMenu from "../adminMenu/adminMenu"
 import "./detailes.css";
 
-export const DetailsItem = () => {
+const DetailsItem = () => {
     const locationId = useLocation();
     const navigateHome = useNavigate();
     return (
@@ -31,3 +31,5 @@ export const DetailsItem = () => {
         </div>
     );
 }
+
+export default DetailsItem;

@@ -1,7 +1,7 @@
-import { Item } from "./productItems";
+import Item from "./productItems";
 import "./items.css";
 
-export const WrapperItem = ({ list, setList }) => {
+const WrapperItem = ({ list, setList }) => {
     return (
         <div className="content">
             <div className="header">
@@ -22,3 +22,5 @@ export const WrapperItem = ({ list, setList }) => {
         </div>
     );
 }
+
+export default WrapperItem;

@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { Link, json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export const Item = ({ id, name, price, list, setList }) => {
-
+const Item = ({ id, name, price, list, setList }) => {
     const navigateDetails = useNavigate();
     const navigateEdit = useNavigate();
 
@@ -47,3 +46,5 @@ export const Item = ({ id, name, price, list, setList }) => {
         </div>
     );
 }
+
+export default Item;

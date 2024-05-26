@@ -2,7 +2,7 @@ import { Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const FormList = () => {
+const FormList = () => {
     /* Set Picture */
     const [productImage, setProductImage] = useState();
     const setImage = (event) => {
@@ -41,3 +41,5 @@ export const FormList = () => {
         </Form>
     );
 }
+
+export default FormList;

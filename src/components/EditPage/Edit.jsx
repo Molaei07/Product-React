@@ -1,11 +1,11 @@
 import { Formik } from "formik";
-import { FormList } from "../form/form";
+import FormList from "../form/form";
 import "./edit.css";
-import { AdminMenu } from "../adminMenu/adminMenu";
+import AdminMenu from "../adminMenu/adminMenu";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-export const EditProduct = ({ list, setList, validation }) => {
+const EditProduct = ({ list, setList, validation }) => {
     
 
     /* Edit product */
@@ -39,3 +39,5 @@ export const EditProduct = ({ list, setList, validation }) => {
             </div>
         </div>);
 }
+
+export default EditProduct;

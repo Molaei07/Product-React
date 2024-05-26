@@ -1,7 +1,7 @@
 import './adminMenuStyle.css';
 import { Link } from "react-router-dom";
 
-export const AdminMenu = () => {
+const AdminMenu = () => {
     return (
         <div className="m-container">
             <div className="menu">
@@ -32,3 +32,5 @@ export const AdminMenu = () => {
         </div>
     );
 }
+
+export default AdminMenu;

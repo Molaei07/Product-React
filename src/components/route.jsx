@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Home } from "./homePage/home.jsx";
-import { AddProduct } from "./addProductPage/addProduct.jsx";
-import { EditProduct } from "./EditPage/Edit.jsx";
-import { DetailsItem } from "./detailesProduct/detailes.jsx";
+import Home from "./homePage/home.jsx";
+import AddProduct from "./addProductPage/addProduct.jsx";
+import EditProduct from "./EditPage/Edit.jsx";
+import DetailsItem from "./detailesProduct/detailes.jsx";
+import validation from "../validationError.jsx";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import * as yup from "yup";
 
 export const RouteApplication = () => {
     /* Product List */
     const [list, setList] = useState([]);
+
     /* Function Get List From Sever */
     const getList = async () => {
         let res = await axios.get(
@@ -17,17 +18,11 @@ export const RouteApplication = () => {
         );
         setList(res.data);
     };
+
     /* Get List */
     useEffect(() => {
         getList();
     }, []);
-
-    /* Validation error */ 
-    const validation = yup.object().shape({
-        name: yup.string().required(),
-        price: yup.number().required(),
-        score: yup.number().max(5).min(1).required(),
-    })
 
     return (
         <BrowserRouter>
