@@ -4,13 +4,18 @@ import { Formik } from "formik";
 import AdminMenu from "../adminMenu/adminMenu";
 import FormList from "../form/form";
 import axios from "axios";
+import { success, problem } from "../allToast/allToast";
 
 const AddProduct = ({ list, setList, getList, validation }) => {
     /* Set a new product to List */
     const createNewProduct = async (values) => {
-        await axios.post("https://664e181dfafad45dfadf0061.mockapi.io/ProductList", values)
-        alert("Create new product!")
-        getList()
+        try {
+            await axios.post("https://664e181dfafad45dfadf0061.mockapi.io/ProductList", values)
+            getList()
+            success("Product add successfully")
+        } catch {
+            problem("Please try again!")
+        }
     }
 
     return (

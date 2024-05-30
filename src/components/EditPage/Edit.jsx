@@ -4,19 +4,22 @@ import "./edit.css";
 import AdminMenu from "../adminMenu/adminMenu";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { success, problem } from "../allToast/allToast";
 
 const EditProduct = ({ list, setList, validation }) => {
-    
+
 
     /* Edit product */
-    const handleEdit = (values) => {
-        axios.put(`https://664e181dfafad45dfadf0061.mockapi.io/ProductList/${values.id}`, values)
-            .then(() => {
-                alert("is Edited")
-            })
-        /* Replace obj in list with new obj */
-        let newList = list.find(el => el.id === values.id)
-        Object.assign(newList, values) /* impotent! */
+    const handleEdit = async (values) => {
+        try {
+            await axios.put(`https://664e181dfafad45dfadf0061.mockapi.io/ProductList/${values.id}`, values)
+            success("Product updated successfully");
+            /* Replace obj in list with new obj */
+            let newList = list.find(el => el.id === values.id)
+            Object.assign(newList, values) /* impotent! */
+        } catch {
+            problem("Please try again!")
+        }
     }
 
     /* Get obj from List */
